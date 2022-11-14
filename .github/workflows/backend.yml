@@ -6,7 +6,7 @@ on:
       - '**'
 
 jobs:
-  docker:
+  build_test_and_lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,10 +22,10 @@ jobs:
           poetry install
       
       - name: Build project
-        run: poetry run poe build
+        run: cd backend && poetry run poe build
       
       - name: Test project
-        run: poetry run poe test
+        run: cd backend && poetry run poe test
       
       - name: Lint project
-        run: poetry run poe lint
+        run: cd backend && poetry run poe lint

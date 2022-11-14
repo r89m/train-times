@@ -6,7 +6,7 @@ on:
       - '**'
 
 jobs:
-  docker:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,5 +21,5 @@ jobs:
           npm install
       
       - name: Build project
-        run: npm run build
+        run: cd frontend && npm run build
       
