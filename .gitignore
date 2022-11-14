@@ -1,0 +1,5 @@
+# Backend
+.venv
+
+# Frontend
+node_modules
