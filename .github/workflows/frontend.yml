@@ -1,0 +1,23 @@
+name: Frontend tasks
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          python-version: '18.12.1' 
+
+      - name: Install project
+        run: npm install
+      
+      - name: Build project
+        run: npm run build
+      

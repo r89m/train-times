@@ -1,0 +1,29 @@
+name: Docker image build
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push frontend
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          target: FRONTEND_HOST
+          tags: ghcr.io/r89m/traintimes-frontend:${{ github.sha }}
+      - name: Build and push backend
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          target: BACKEND_HOST
+          tags: ghcr.io/r89m/traintimes-backend:${{ github.sha }}

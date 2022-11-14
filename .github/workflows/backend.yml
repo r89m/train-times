@@ -1,0 +1,30 @@
+name: Backend tasks
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9.6' 
+
+      - name: Install Poetry and project
+        run: |
+          pip install poetry==1.1.10
+          poetry install
+      
+      - name: Build project
+        run: poetry run poe build
+      
+      - name: Test project
+        run: poetry run poe test
+      
+      - name: Lint project
+        run: poetry run poe lint
