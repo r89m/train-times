@@ -1,0 +1,102 @@
+[
+  {
+    "from_estimated_time": "22:08",
+    "from_scheduled_time": "22:03",
+    "length": "12",
+    "platform": "4",
+    "to_crs": "LBG",
+    "to_estimated_time": "22:24",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "22:20"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:15",
+    "length": "12",
+    "platform": "1",
+    "to_crs": "LBG",
+    "to_estimated_time": "On time",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "22:30"
+  },
+  {
+    "from_estimated_time": "Delayed",
+    "from_scheduled_time": "22:21",
+    "length": "12",
+    "platform": "2",
+    "to_crs": "LBG",
+    "to_estimated_time": "Delayed",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "22:34"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:22",
+    "length": "5",
+    "platform": "5",
+    "to_crs": "LBG",
+    "to_estimated_time": "On time",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "23:06"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:25",
+    "length": "10",
+    "platform": "4",
+    "to_crs": "LBG",
+    "to_estimated_time": "On time",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "22:43"
+  },
+  {
+    "from_estimated_time": "22:44",
+    "from_scheduled_time": "22:38",
+    "length": "3",
+    "platform": "4",
+    "to_crs": "LBG",
+    "to_estimated_time": "22:59",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "22:53"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:45",
+    "length": "12",
+    "platform": "1",
+    "to_crs": "LBG",
+    "to_estimated_time": "On time",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "23:00"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:51",
+    "length": "12",
+    "platform": "2",
+    "to_crs": "LBG",
+    "to_estimated_time": "On time",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "23:04"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:52",
+    "length": "5",
+    "platform": "5",
+    "to_crs": "LBG",
+    "to_estimated_time": "On time",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "23:36"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:55",
+    "length": "8",
+    "platform": "4",
+    "to_crs": "LBG",
+    "to_estimated_time": "On time",
+    "to_name": "London Bridge",
+    "to_scheduled_time": "23:13"
+  }
+]

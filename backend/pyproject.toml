@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "train-times"
+version = "0.1.0"
+description = ""
+authors = ["Richard"]
+packages = [
+    { include = "traintimes" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+nre-darwin-py = { git = "https://github.com/r89m/nre-darwin-py.git", rev = "74c02ea271b39e92f296f1b3f46389417a32fc2b" }
+gunicorn = "^20.1.0"
+Flask = "^2.2.2"
+Flask-Cors = "^3.0.10"
+
+[tool.poetry.dev-dependencies]
+poethepoet = "^0.16.4"
+flake8 = "^5.0.4"
+flake8-import-order = "^0.18.1"
+pytest = "^7.2.0"
+
+[tool.poe.tasks]
+build = "poetry build"
+lint = "flake8"
+test = "pytest -s tests --log-level=DEBUG"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

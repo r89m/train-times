@@ -1,0 +1,102 @@
+[
+  {
+    "from_estimated_time": "22:12",
+    "from_scheduled_time": "22:10",
+    "length": "8",
+    "platform": "1",
+    "to_crs": "CLJ",
+    "to_estimated_time": "On time",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "22:19"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:10",
+    "length": "4",
+    "platform": "5",
+    "to_crs": "CLJ",
+    "to_estimated_time": "On time",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "22:35"
+  },
+  {
+    "from_estimated_time": "22:21",
+    "from_scheduled_time": "22:19",
+    "length": "8",
+    "platform": "1",
+    "to_crs": "CLJ",
+    "to_estimated_time": "22:30",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "22:28"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:28",
+    "length": "8",
+    "platform": "1",
+    "to_crs": "CLJ",
+    "to_estimated_time": "On time",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "22:37"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:30",
+    "length": "4",
+    "platform": "4",
+    "to_crs": "CLJ",
+    "to_estimated_time": "On time",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "22:40"
+  },
+  {
+    "from_estimated_time": "22:44",
+    "from_scheduled_time": "22:41",
+    "length": "8",
+    "platform": "1",
+    "to_crs": "CLJ",
+    "to_estimated_time": "On time",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "22:52"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:45",
+    "length": "8",
+    "platform": "4",
+    "to_crs": "CLJ",
+    "to_estimated_time": "On time",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "22:55"
+  },
+  {
+    "from_estimated_time": "On time",
+    "from_scheduled_time": "22:49",
+    "length": "8",
+    "platform": "1",
+    "to_crs": "CLJ",
+    "to_estimated_time": "On time",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "22:58"
+  },
+  {
+    "from_estimated_time": "23:00",
+    "from_scheduled_time": "22:58",
+    "length": "8",
+    "platform": "1",
+    "to_crs": "CLJ",
+    "to_estimated_time": "23:09",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "23:07"
+  },
+  {
+    "from_estimated_time": "Cancelled",
+    "from_scheduled_time": "23:00",
+    "length": null,
+    "platform": null,
+    "to_crs": "CLJ",
+    "to_estimated_time": "Cancelled",
+    "to_name": "Clapham Junction",
+    "to_scheduled_time": "23:11"
+  }
+]

@@ -1,0 +1,6 @@
+[flake8]
+count = True
+exclude = .bzr,.hg,.git,__pycache__,.tox,.venv,.eggs
+max-line-length = 180
+application_import_names = traintimes, tests
+import-order-style = pycharm
