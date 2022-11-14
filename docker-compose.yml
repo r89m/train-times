@@ -1,0 +1,17 @@
+version: "3"
+services:
+  frontend:
+    image: traintimes_frontend:latest
+    container_name: traintimes-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8081:80"
+      
+  backend:
+    image: traintimes-api:latest
+    container_name: traintimes-backend
+    restart: unless-stopped
+    environment:
+      - DARWIN_WEBSERVICE_API_KEY=${DARWIN_WEBSERVICE_API_KEY}
