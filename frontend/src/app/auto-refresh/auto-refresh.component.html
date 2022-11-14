@@ -1,0 +1,10 @@
+<div class="container">
+    <div>
+        <input type="checkbox" id="enabled-refresh" [(ngModel)]="refreshEnabled" (change)="resetCountdown()" /><label for="enabled-refresh">Enable Auto
+        Refresh?</label>
+    </div>
+    <div *ngIf="refreshEnabled" class="countdown">
+        <ng-container *ngIf="isRefreshing">Refreshing...</ng-container>
+        <ng-container *ngIf="!isRefreshing">Refreshing in {{ secondsUntilRefresh }} seconds.</ng-container>
+    </div>
+</div>

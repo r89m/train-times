@@ -1,0 +1,43 @@
+table.timetable {
+    max-width: 100%;
+    width: 100%;
+    padding: 4px;
+    text-align: center;
+    border-collapse: collapse;
+    font-weight: bold;
+}
+
+table.timetable th {
+    padding: 16px 0;
+    background: #303F9F;
+    color: #FFFFFF
+}
+
+table.timetable tr {
+    border-top: 1px solid #FFFFFF;
+}
+
+table.timetable td {
+    padding: 16px 4px;
+}
+
+tr.platform1and2 {
+    background: rgba(197, 202, 233, 0.8);
+}
+
+tr.platform3and4 {
+    background: rgba(197, 202, 233, 0.3);
+}
+
+tr.platform5and6 {
+    opacity: 0.5;
+    background: rgba(117, 117, 117);
+}
+
+.on-time {
+    color: #4CAF50
+}
+
+.delayed {
+    color: #D32F2F;
+}

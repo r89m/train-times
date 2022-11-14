@@ -1,0 +1,55 @@
+<table class="timetable">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Departs</th>
+        <th>Arrives</th>
+        <th>Destination</th>
+        <th>Platform</th>
+        <th>Length</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let departure of departures | async"
+        [class.platform1and2]="departure.platform == '1' || departure.platform == '2'"
+        [class.platform3and4]="departure.platform == '3' || departure.platform == '4'"
+        [class.platform5and6]="departure.platform == '5' || departure.platform == '6'"
+    >
+        <td>
+            <ng-container *ngIf="!departure.is_cancelled_or_permanently_delayed">
+                {{ getTimeUntilFromTime(departure) }}<br/>mins
+            </ng-container>
+        </td>
+        <td>
+            <ng-container
+                *ngIf="departure.isFromTimeDelayed; else delayedDepartureTime">
+                <span class="on-time">{{ departure.from_scheduled_time }}</span>
+            </ng-container>
+            <ng-template #delayedDepartureTime>
+                <div  style="font-size: 0.8em">
+                    {{ departure.from_scheduled_time }}
+                    <span *ngIf="!departure.is_cancelled_or_permanently_delayed" class="delayed">+{{ departure.fromDelayedMinutes }}</span>
+                </div>
+                <div class="delayed">{{ departure.from_estimated_time }}</div>
+            </ng-template>
+        </td>
+        <td>
+            <ng-container *ngIf="departure.isToTimeDelayed; else delayedArrivalTime">
+                <span class="on-time">{{ departure.to_scheduled_time }}</span>
+            </ng-container>
+            <ng-template #delayedArrivalTime>
+                <div style="font-size: 0.8em;">
+                    {{ departure.to_scheduled_time }}
+                    <span *ngIf="!departure.is_cancelled_or_permanently_delayed"  class="delayed">+{{ departure.toDelayedMinutes }}</span>
+                </div>
+                <div class="delayed">{{ departure.to_estimated_time }}</div>
+            </ng-template>
+        </td>
+        <td>{{ departure.to_crs }}</td>
+        <td>{{ departure.platform }}</td>
+        <td>{{ departure.length }}</td>
+    </tr>
+    </tbody>
+</table>
+<!--<app-auto-refresh (onRefresh)="triggerDataReload()" [refreshComplete]="refreshComplete"></app-auto-refresh>-->
+<!--{{count}}-->

@@ -1,0 +1,19 @@
+.container{
+    float: right;
+    padding: 8px;
+    text-align: right;
+}
+
+input {
+    accent-color: #3F51B5;
+}
+
+label {
+    position: relative;
+    top: -3px;
+}
+
+.countdown {
+    font-size: 0.9em;
+    color: #757575;
+}
