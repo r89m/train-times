@@ -16,7 +16,9 @@ jobs:
           python-version: '18.12.1' 
 
       - name: Install project
-        run: npm install
+        run: |
+          cd frontend
+          npm install
       
       - name: Build project
         run: npm run build

@@ -18,6 +18,7 @@ jobs:
       - name: Install Poetry and project
         run: |
           pip install poetry==1.1.10
+          cd backend
           poetry install
       
       - name: Build project
