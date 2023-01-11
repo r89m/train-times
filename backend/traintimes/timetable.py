@@ -1,7 +1,7 @@
 import functools
-from typing import List
+from typing import List, Optional
 
-from nredarwin.webservice import CallingPoint, DarwinLdbSession, ServiceItem
+from nredarwin.webservice import CallingPoint, CallingPointList, DarwinLdbSession, ServiceItem
 
 from traintimes.models import DepartureJson
 
@@ -13,10 +13,10 @@ def combine_timetables(timetable_one: List[DepartureJson], timetable_two: List[D
     timetable_two_iterator = iter(timetable_two)
 
     # Interleave the two timetables, in order of actual departure time
-    final_timetable = []
+    final_timetable: List[DepartureJson] = []
 
-    next_one = None
-    next_two = None
+    next_one: Optional[DepartureJson] = None
+    next_two: Optional[DepartureJson] = None
 
     while True:
         next_one = next_one or next(timetable_one_iterator, None)
@@ -27,7 +27,7 @@ def combine_timetables(timetable_one: List[DepartureJson], timetable_two: List[D
             break
         elif next_one is None:
             # If "next_one" is None, we've reached the end of the first iterable, just add items from the second
-            final_timetable.append(next_two)
+            final_timetable.append(next_two)  # type: ignore
             next_two = None
         elif next_two is None:
             # If "next_two" is None, we've reached the end of the second iterable, just add items from the first
@@ -61,7 +61,7 @@ def handle_delta_near_midnight(original_delta: int) -> int:
         return original_delta
 
 
-def sort_timetable_comparison_function(departure_a: DepartureJson, departure_b: DepartureJson):
+def sort_timetable_comparison_function(departure_a: DepartureJson, departure_b: DepartureJson) -> int:
     minutes_a = to_minutes(get_actual_to_time(departure_a))
     minutes_b = to_minutes(get_actual_to_time(departure_b))
     minutes_delta = minutes_a - minutes_b
@@ -76,7 +76,7 @@ def sort_timetable(timetable: List[DepartureJson]) -> List[DepartureJson]:
     return sorted(timetable, key=functools.cmp_to_key(sort_timetable_comparison_function))
 
 
-def get_timetable(darwin_client: DarwinLdbSession, destination) -> List[DepartureJson]:
+def get_timetable(darwin_client: DarwinLdbSession, destination: str) -> List[DepartureJson]:
     timetable = darwin_client.get_station_board("ECR", destination_crs=destination)
     services: List[ServiceItem] = timetable.train_services
 
@@ -111,7 +111,7 @@ def service_to_json(destination_crs: str, service_item: ServiceItem) -> Departur
         service_item.platform,
         service_item.length)
 
-    subsequent_calling_point_lists: List = getattr(service_item, "subsequent_calling_point_lists")
+    subsequent_calling_point_lists: List[CallingPointList] = getattr(service_item, "subsequent_calling_point_lists")
     process_calling_points(destination_crs,
                            departure_json,
                            subsequent_calling_point_lists[0].calling_points)
@@ -135,7 +135,7 @@ def to_minutes(time_string: str) -> int:
         return 0
 
 
-def get_actual_estimated_time(scheduled, estimated) -> str:
+def get_actual_estimated_time(scheduled: str, estimated: Optional[str]) -> str:
     if estimated is None or estimated.lower() in ["on time", "cancelled", "delayed"]:
         return scheduled
     else:

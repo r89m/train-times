@@ -29,3 +29,6 @@ jobs:
       
       - name: Lint project
         run: cd backend && poetry run poe lint
+      
+      - name: Type Check project
+        run: cd backend && poetry run poe type-check

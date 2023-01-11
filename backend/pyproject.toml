@@ -19,10 +19,13 @@ poethepoet = "^0.16.4"
 flake8 = "^5.0.4"
 flake8-import-order = "^0.18.1"
 pytest = "^7.2.0"
+mypy = "^0.991"
+types-Flask-Cors = "^3.0.10"
 
 [tool.poe.tasks]
 build = "poetry build"
 lint = "flake8"
+type-check = "poetry run mypy traintimes --strict"
 test = "pytest -s tests --log-level=DEBUG"
 
 [build-system]
