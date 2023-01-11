@@ -112,9 +112,12 @@ def service_to_json(destination_crs: str, service_item: ServiceItem) -> Departur
         service_item.length)
 
     subsequent_calling_point_lists: List[CallingPointList] = getattr(service_item, "subsequent_calling_point_lists")
-    process_calling_points(destination_crs,
-                           departure_json,
-                           subsequent_calling_point_lists[0].calling_points)
+    try:
+        process_calling_points(destination_crs,
+                               departure_json,
+                               subsequent_calling_point_lists[0].calling_points)
+    except IndexError:
+        pass
 
     return departure_json
 
