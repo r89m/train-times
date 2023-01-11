@@ -94,7 +94,7 @@ def process_calling_points(destination_crs: str,
                            departure_json: DepartureJson,
                            subsequent_stops: List[CallingPoint]) -> None:
     for stop in subsequent_stops:
-        if stop.crs != destination_crs:
+        if stop.crs.casefold() != destination_crs.casefold():
             continue
 
         departure_json.to_crs = stop.crs
