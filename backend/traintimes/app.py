@@ -14,12 +14,20 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 darwin_client = DarwinLdbSession(wsdl="https://lite.realtime.nationalrail.co.uk/OpenLDBWS/wsdl.aspx")
 
 
-@app.route('/timetable/ecr2clj-lbg', methods=['GET'])
+@app.route('/timetable/<source>2<destination>', methods=['GET'])
 @cross_origin()
-def get_ecr_2_clj_lbg_timetable() -> List[DepartureJson]:
-    lbg_timetable = get_timetable(darwin_client, "LBG")
-    clj_timetable = get_timetable(darwin_client, "CLJ")
-    return combine_timetables(lbg_timetable, clj_timetable)
+def get_ecr_2_clj_lbg_timetable(source: str, destination: str) -> List[DepartureJson]:
+    destinations = destination.split(",")
+    if len(destinations) > 2:
+        raise RuntimeError("Only 2 destinations are currently supported")
+    elif len(destinations) == 2:
+        timetable_1 = get_timetable(darwin_client, source, destinations[0])
+        timetable_2 = get_timetable(darwin_client, source, destinations[1])
+        return combine_timetables(timetable_1, timetable_2)
+    elif len(destinations) == 1:
+        return get_timetable(darwin_client, source, destination)
+    else:
+        raise RuntimeError("Destination must be provided")
 
 
 if __name__ == '__main__':

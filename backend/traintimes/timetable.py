@@ -76,8 +76,8 @@ def sort_timetable(timetable: List[DepartureJson]) -> List[DepartureJson]:
     return sorted(timetable, key=functools.cmp_to_key(sort_timetable_comparison_function))
 
 
-def get_timetable(darwin_client: DarwinLdbSession, destination: str) -> List[DepartureJson]:
-    timetable = darwin_client.get_station_board("ECR", destination_crs=destination)
+def get_timetable(darwin_client: DarwinLdbSession, source: str, destination: str) -> List[DepartureJson]:
+    timetable = darwin_client.get_station_board(source.upper(), destination_crs=destination.upper())
     services: List[ServiceItem] = timetable.train_services
 
     departures_json: List[DepartureJson] = []
