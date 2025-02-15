@@ -1,5 +1,5 @@
-FROM python:3.9.6 as BACKEND_HOST
-RUN pip install poetry==1.1.10
+FROM python:3.10.13 as BACKEND_HOST
+RUN pip install poetry==1.8.3
 
 WORKDIR /source
 
