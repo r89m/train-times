@@ -7,10 +7,6 @@ COPY backend/poetry.lock backend/poetry.toml backend/pyproject.toml ./
 
 RUN mkdir traintimes && touch traintimes/__init__.py && poetry install
 
-RUN sed -i 's/GetDepartureBoard/GetDepBoardWithDetails/g' /source/.venv/lib/python3.9/site-packages/nredarwin/webservice.py
-RUN sed -i 's/\[ServiceItem/\[ServiceItemWithDetails/g' /source/.venv/lib/python3.9/site-packages/nredarwin/webservice.py
-
-
 COPY backend/traintimes ./traintimes
 
 CMD [ "/source/.venv/bin/gunicorn", "-w", "4", "-b", "0.0.0.0", "traintimes.app:app" ]
