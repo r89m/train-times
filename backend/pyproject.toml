@@ -9,7 +9,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-nre-darwin-py = { git = "https://github.com/r89m/nre-darwin-py.git", rev = "74c02ea271b39e92f296f1b3f46389417a32fc2b" }
+nre-darwin-py = { git = "https://github.com/r89m/nre-darwin-py.git", rev = "3f3e859bf44bf70fc98968ce2c16084cc809b324" }
 gunicorn = "^20.1.0"
 Flask = "^2.2.2"
 Flask-Cors = "^3.0.10"

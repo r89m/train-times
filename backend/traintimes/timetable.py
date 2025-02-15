@@ -77,7 +77,7 @@ def sort_timetable(timetable: List[DepartureJson]) -> List[DepartureJson]:
 
 
 def get_timetable(darwin_client: DarwinLdbSession, source: str, destination: str) -> List[DepartureJson]:
-    timetable = darwin_client.get_station_board(source.upper(), destination_crs=destination.upper())
+    timetable = darwin_client.get_station_board(source.upper(), destination_crs=destination.upper(), with_details=True)
     services: List[ServiceItem] = timetable.train_services
 
     departures_json: List[DepartureJson] = []

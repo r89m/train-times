@@ -14,7 +14,7 @@ export class TimetableService {
 
     // TODO: Convert to Observable? Add reload trigger
     getDepartures(): Observable<Departure[]> {
-        return this.http.get<RawDeparture[]>(`${environment.apiBaseUrl}timetable/ecr2clj-lbg`)
+        return this.http.get<RawDeparture[]>(`${environment.apiBaseUrl}timetable/ecr2clj,lbg`)
             .pipe(map(departures => {
                 return departures.map(convertRawDurationToDuration)
             }));
